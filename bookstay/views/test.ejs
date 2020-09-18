@@ -1,0 +1,14 @@
+<% include headerLayout.ejs %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $.post("/test", function (data, status) {
+            console.log(data);
+        });
+    });
+</script>
+
+테스트
+
+<% include footerLayout.ejs %>
