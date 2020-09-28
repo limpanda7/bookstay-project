@@ -1,5 +1,5 @@
 var fs = require('fs');
-var mysql = require('mysql');
+var mysql = require('mysql2');
 
 // 데이터베이스 연결
 var client = mysql.createConnection({
