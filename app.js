@@ -8,6 +8,7 @@ var logger = require('morgan');
 
 // 서버 생성
 var app = express();
+var PORT = process.env.PORT;
 
 // 서버 설정
 app.set('views', path.join(__dirname, 'views'));
@@ -41,3 +42,5 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
+
+app.listen(PORT);
