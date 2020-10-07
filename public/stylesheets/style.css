@@ -83,11 +83,25 @@ div#intro {
   padding: 15px;
 }
 
+div#pictures {
+  text-align: center;
+  position: relative;
+  font-family: 'Poor Story', cursive;
+  font-size: 20px;
+}
+
 div#location {
   position: relative;
   text-align: center;
   font-family: 'Poor Story', cursive;
   font-size: 20px;
+}
+
+div#locationInfo {
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }
 
 table#locationMap {
