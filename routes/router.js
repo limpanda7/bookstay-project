@@ -41,7 +41,29 @@ module.exports = function (app) {
 
   app.get('/booklist', (request, response) => {
     fs.readFile('views/booklist.ejs', 'utf8', (error, data) => {
-      client.query('SELECT * FROM booklist', (error, results) => {
+      client.query('SELECT * FROM booklist ORDER BY published desc', (error, results) => {
+        response.render('booklist', {
+          title: '100년 한옥 북스테이 :: 도서목록',
+          data: results
+        });
+      });
+    });
+  });
+
+  app.get('/booklist-oldest', (request, response) => {
+    fs.readFile('views/booklist.ejs', 'utf8', (error, data) => {
+      client.query('SELECT * FROM booklist ORDER BY published asc', (error, results) => {
+        response.render('booklist', {
+          title: '100년 한옥 북스테이 :: 도서목록',
+          data: results
+        });
+      });
+    });
+  });
+
+  app.get('/booklist-title', (request, response) => {
+    fs.readFile('views/booklist.ejs', 'utf8', (error, data) => {
+      client.query('SELECT * FROM booklist ORDER BY title', (error, results) => {
         response.render('booklist', {
           title: '100년 한옥 북스테이 :: 도서목록',
           data: results

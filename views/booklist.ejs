@@ -2,19 +2,36 @@
 
 <div id="booklist">
 
-    <table id="booktable" width="800">
+<h2 style="text-align: center; font-size: 35px;">도서목록</h2>
+<h3 style="text-align: center;">▼제목 또는 저자를 클릭하면 포털에서 검색합니다.</h4>
+
+<form>
+    <select onchange="if (this.value) location.href=(this.value);">
+        <option value="">정렬기준</option>
+        <option value="/booklist">최신순</option>
+        <option value="/booklist-oldest">오래된순</option>
+        <option value="/booklist-title">제목순</option>
+    </select>
+</form>
+
+<table id="booktable" width="800">
+    <tr>
+        <th>제목</th>
+        <th>저자</th>
+        <th>발행일</th>
+    </tr>
+    <% data.forEach((item, index) => { %>
         <tr>
-            <th>제목</th>
-            <th>저자</th>
-            <th>발행일</th>
+            <td><a href="https://book.naver.com/search/search.nhn?query=<%= item.title %>" target="_blank"><%= item.title %></a></td>
+            <td><a href="https://search.naver.com/search.naver?query=<%= item.author %>" target="_blank"><%= item.author %></a></td>
+            <% var date = item.published %>
+            <% var year = date.getFullYear(); %>
+            <% var month = date.getMonth(); %>
+            <% var day = date.getDate(); %>
+            <td><%= year + "/" + (month + 1) + "/" + day %></td>
         </tr>
-        <% data.forEach((item, index) => { %>
-            <tr>
-                <td><%= item.id %></a></td>
-                <td><%= item.title %></a></td>
-            </tr>
-        <% }); %>
-    </table>
+    <% }); %>
+</table>
 
 </div>
 
